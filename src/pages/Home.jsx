@@ -2,9 +2,11 @@ import { Link } from 'react-router-dom';
 import Hero from '../components/Hero.jsx';
 import SectionWrapper from '../components/SectionWrapper.jsx';
 import ServiceCard from '../components/ServiceCard.jsx';
+import ProjectsCarousel from '../components/ProjectsCarousel.jsx';
 import PremiumTierSection from '../components/PremiumTierSection.jsx';
 import CTAButton from '../components/CTAButton.jsx';
 import services from '../data/services.js';
+import projects from '../data/projects.js';
 
 export default function Home() {
   return (
@@ -45,6 +47,16 @@ export default function Home() {
             />
           ))}
         </div>
+      </SectionWrapper>
+
+      {/* Selected Work */}
+      <SectionWrapper
+        id="work"
+        eyebrow="Selected Work"
+        title="Things we've shipped."
+        intro="A small, growing shelf of real builds — full-stack apps and considered client sites."
+      >
+        <ProjectsCarousel projects={projects} />
       </SectionWrapper>
 
       {/* Premium Build Options */}
