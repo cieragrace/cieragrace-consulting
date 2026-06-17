@@ -1,5 +1,6 @@
 // Selected Work — designed for 5 slots (owner will end with 5).
 // status: 'live' (full data) | 'soon' (graceful placeholder, no fake links).
+// preview: { poster } static fallback image, { clip } short looping interaction video.
 const projects = [
   {
     title: 'AP Tracker',
@@ -9,6 +10,8 @@ const projects = [
     stack: ['Next.js', 'TypeScript', 'Tailwind', 'Drizzle', 'Turso'],
     liveUrl: 'https://ap-tracker-three.vercel.app',
     repoUrl: 'https://github.com/cieragrace/ap-tracker',
+    poster: '/work/ap-tracker.jpg',
+    clip: '/work/ap-tracker.mp4',
     status: 'live',
   },
   {
@@ -19,6 +22,8 @@ const projects = [
     stack: ['Next.js', 'TypeScript', 'Tailwind', 'Drizzle', 'Turso'],
     liveUrl: 'https://ink-colorado.vercel.app',
     repoUrl: 'https://github.com/cieragrace/inked-colorado',
+    poster: '/work/inked-colorado.jpg',
+    clip: '/work/inked-colorado.mp4',
     status: 'live',
   },
   {
@@ -29,6 +34,8 @@ const projects = [
     stack: ['Next.js', 'TypeScript', 'Tailwind'],
     liveUrl: 'https://garden-grow-sable.vercel.app',
     repoUrl: 'https://github.com/cieragrace/garden-grow',
+    poster: '/work/garden-grow.jpg',
+    clip: '/work/garden-grow.mp4',
     status: 'live',
   },
   {
@@ -39,6 +46,8 @@ const projects = [
     stack: ['Astro', 'Tailwind'],
     liveUrl: 'https://ironside-barber.vercel.app',
     repoUrl: 'https://github.com/cieragrace/ironside-barber',
+    poster: '/work/ironside-barber.jpg',
+    clip: '/work/ironside-barber.mp4',
     status: 'live',
   },
   {
@@ -49,6 +58,8 @@ const projects = [
     stack: [],
     liveUrl: null,
     repoUrl: null,
+    poster: null,
+    clip: null,
     status: 'soon',
   },
 ];

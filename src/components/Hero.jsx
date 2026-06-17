@@ -30,9 +30,9 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.05 }}
           >
-            Considered websites for
+            Thoughtful websites,
             <br />
-            <span className="italic text-copper-600">considered businesses.</span>
+            <span className="italic text-copper-600">crafted with intention.</span>
           </motion.h1>
 
           <motion.p

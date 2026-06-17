@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Hero from '../components/Hero.jsx';
 import SectionWrapper from '../components/SectionWrapper.jsx';
 import ServiceCard from '../components/ServiceCard.jsx';
-import ProjectsCarousel from '../components/ProjectsCarousel.jsx';
+import WorkShowcase from '../components/WorkShowcase.jsx';
 import PremiumTierSection from '../components/PremiumTierSection.jsx';
 import CTAButton from '../components/CTAButton.jsx';
 import services from '../data/services.js';
@@ -33,8 +33,8 @@ export default function Home() {
       <SectionWrapper
         id="services"
         eyebrow="Services"
-        title="What we build."
-        intro="A focused set of services — designed to do a few things exceptionally well rather than everything at once."
+        title="What we do."
+        intro="From your website to your logo, your strategy to your documents — a connected set of services that keep your business looking and working its best."
         className="bg-mint-50"
       >
         <div className="grid gap-6 md:gap-7 sm:grid-cols-2">
@@ -50,14 +50,16 @@ export default function Home() {
       </SectionWrapper>
 
       {/* Selected Work */}
-      <SectionWrapper
-        id="work"
-        eyebrow="Selected Work"
-        title="Things we've shipped."
-        intro="A small, growing shelf of real builds — full-stack apps and considered client sites."
-      >
-        <ProjectsCarousel projects={projects} />
-      </SectionWrapper>
+      <section id="work" className="py-20 md:py-28">
+        <div className="container-page">
+          <WorkShowcase
+            projects={projects}
+            eyebrow="Selected Work"
+            title="Things we've shipped."
+            intro="A small, growing shelf of real builds — full-stack apps and hand-crafted client sites."
+          />
+        </div>
+      </section>
 
       {/* Premium Build Options */}
       <PremiumTierSection />

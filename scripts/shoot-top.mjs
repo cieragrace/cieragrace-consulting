@@ -1,0 +1,13 @@
+import { chromium } from '/Users/cieragrace/DEVELOPMENT/landscaper-sites/node_modules/playwright/index.mjs';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const width = Number(process.argv[2] || 1440);
+const out = path.join(__dirname, '..', `_top-${width}.png`);
+const browser = await chromium.launch();
+const page = await browser.newPage({ viewport: { width, height: 1600 }, deviceScaleFactor: 1 });
+await page.goto('http://localhost:5173/', { waitUntil: 'networkidle' });
+await page.waitForTimeout(1500);
+await page.screenshot({ path: out });
+console.log('shot', out);
+await browser.close();
