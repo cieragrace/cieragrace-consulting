@@ -30,7 +30,7 @@ const projects = [
     title: 'Garden Grow',
     category: 'Interactive Web App',
     description:
-      'A planting companion that turns your zip code into a USDA growing zone, then recommends what to plant — with companion-planting guidance and a to-scale bed designer.',
+      'A planting companion that turns your zip code into a USDA growing zone, then recommends what to plant — with companion-planting guidance and a to-scale bed designer. Started as a group capstone at Turing, then rebuilt and expanded solo.',
     stack: ['Next.js', 'TypeScript', 'Tailwind'],
     liveUrl: 'https://garden-grow-sable.vercel.app',
     repoUrl: 'https://github.com/cieragrace/garden-grow',
