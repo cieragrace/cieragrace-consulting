@@ -51,6 +51,18 @@ const projects = [
     status: 'live',
   },
   {
+    title: "Mimi's Chocolate Bites",
+    category: 'Client Site',
+    description:
+      'A warm, moody landing page for a home chocolatier — handcrafted-treat branding, a one-screen hero, and an inquiry form that routes custom orders straight to her inbox.',
+    stack: ['Astro', 'Tailwind'],
+    liveUrl: 'https://mimischocolatebites.com',
+    repoUrl: 'https://github.com/cieragrace/mimis-chocolate-bites',
+    poster: '/work/mimis-chocolate-bites.jpg',
+    clip: null,
+    status: 'live',
+  },
+  {
     title: 'Coming Soon',
     category: 'Scheduling Platform',
     description:
