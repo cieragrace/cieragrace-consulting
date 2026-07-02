@@ -139,7 +139,7 @@ export default function ProjectsCarousel({ projects = [] }) {
         </div>
 
         {/* Pagination dots */}
-        <div className="flex items-center gap-2.5" role="tablist" aria-label="Choose slide">
+        <div className="flex items-center gap-2.5" aria-label="Choose slide">
           {Array.from({ length: pageCount }).map((_, i) => {
             const active = i === page;
             return (
@@ -149,11 +149,15 @@ export default function ProjectsCarousel({ projects = [] }) {
                 onClick={() => goTo(i)}
                 aria-label={`Go to slide ${i + 1} of ${pageCount}`}
                 aria-current={active ? 'true' : undefined}
-                className={[
-                  'h-2.5 rounded-full transition-all duration-300 ease-out-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copperDeep-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream',
-                  active ? 'w-7 bg-copper-500' : 'w-2.5 bg-copper-200 hover:bg-copper-300',
-                ].join(' ')}
-              />
+                className="group flex h-11 min-w-[24px] items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copperDeep-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+              >
+                <span
+                  className={[
+                    'h-2.5 rounded-full transition-all duration-300 ease-out-soft',
+                    active ? 'w-7 bg-copper-500' : 'w-2.5 bg-copper-200 group-hover:bg-copper-300',
+                  ].join(' ')}
+                />
+              </button>
             );
           })}
         </div>

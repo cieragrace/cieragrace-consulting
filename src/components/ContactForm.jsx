@@ -13,6 +13,7 @@ export default function ContactForm() {
   const [form, setForm] = useState(initialState);
   const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
   const [errorMessage, setErrorMessage] = useState('');
+  const [invalidField, setInvalidField] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,22 +21,27 @@ export default function ContactForm() {
   };
 
   const validate = () => {
-    if (!form.name.trim()) return 'Please enter your name.';
-    if (!form.email.trim()) return 'Please enter your email.';
+    if (!form.name.trim()) return { field: 'name', message: 'Please enter your name.' };
+    if (!form.email.trim()) return { field: 'email', message: 'Please enter your email.' };
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
-      return 'Please enter a valid email address.';
-    if (!form.message.trim()) return 'Please include a short message.';
+      return { field: 'email', message: 'Please enter a valid email address.' };
+    if (!form.message.trim())
+      return { field: 'message', message: 'Please include a short message.' };
     return null;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage('');
+    setInvalidField(null);
 
     const validationError = validate();
     if (validationError) {
       setStatus('error');
-      setErrorMessage(validationError);
+      setErrorMessage(validationError.message);
+      setInvalidField(validationError.field);
+      // Move focus to the first invalid field (WCAG 3.3.1)
+      document.getElementById(validationError.field)?.focus();
       return;
     }
 
@@ -76,7 +82,7 @@ export default function ContactForm() {
   };
 
   const inputBase =
-    'w-full px-4 py-3.5 bg-cream border border-copper-100 rounded-2xl text-ink placeholder:text-ink-400/60 focus:outline-none focus:border-copper-500 transition-colors duration-200';
+    'w-full px-4 py-3.5 bg-cream border border-copper-100 rounded-2xl text-ink placeholder:text-ink-400 focus:outline-none focus:border-copper-500 focus:ring-2 focus:ring-copperDeep-500/40 transition-colors duration-200';
 
   return (
     <motion.form
@@ -101,6 +107,8 @@ export default function ContactForm() {
           placeholder="Your full name"
           className={inputBase}
           autoComplete="name"
+          aria-invalid={invalidField === 'name' ? 'true' : undefined}
+          aria-describedby={invalidField === 'name' ? 'form-error' : undefined}
         />
       </div>
 
@@ -118,6 +126,8 @@ export default function ContactForm() {
           placeholder="you@domain.com"
           className={inputBase}
           autoComplete="email"
+          aria-invalid={invalidField === 'email' ? 'true' : undefined}
+          aria-describedby={invalidField === 'email' ? 'form-error' : undefined}
         />
       </div>
 
@@ -150,11 +160,13 @@ export default function ContactForm() {
           onChange={handleChange}
           placeholder="Tell us a little about your project, timeline, and goals."
           className={`${inputBase} resize-y min-h-[140px]`}
+          aria-invalid={invalidField === 'message' ? 'true' : undefined}
+          aria-describedby={invalidField === 'message' ? 'form-error' : undefined}
         />
       </div>
 
       {status === 'error' && errorMessage && (
-        <p role="alert" className="text-sm text-red-700">
+        <p id="form-error" role="alert" className="text-sm text-red-700">
           {errorMessage}
         </p>
       )}
