@@ -2,10 +2,10 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const baseClass =
-  'inline-flex items-center justify-center px-7 py-3.5 text-sm tracking-wide rounded-2xl transition-colors duration-300 ease-out-soft';
+  'inline-flex items-center justify-center px-7 py-3.5 text-sm tracking-wide rounded-2xl transition-colors duration-300 ease-out-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copperDeep-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream';
 
 const variants = {
-  primary: 'bg-copper-500 text-cream hover:bg-copperDeep-500',
+  primary: 'bg-copperDeep-500 text-cream hover:bg-copperDeep-600',
   secondary: 'bg-transparent text-ink border border-ink hover:bg-ink hover:text-cream',
   ghost: 'bg-transparent text-ink hover:text-copper-600',
 };

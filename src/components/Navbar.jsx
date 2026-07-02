@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import MobileMenu from './MobileMenu.jsx';
@@ -12,7 +12,13 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const toggleRef = useRef(null);
   const location = useLocation();
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    toggleRef.current?.focus();
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -37,7 +43,7 @@ export default function Navbar() {
         <nav className="container-page flex items-center justify-between h-16 md:h-20">
           <Link
             to="/"
-            className="font-serif text-xl md:text-2xl tracking-tightish text-ink"
+            className="font-serif text-lg sm:text-xl md:text-2xl tracking-tightish text-ink whitespace-nowrap"
             aria-label="Ciera Grace Consulting — home"
           >
             Ciera Grace <span className="text-copper-600">Consulting</span>
@@ -63,11 +69,13 @@ export default function Navbar() {
           </ul>
 
           <button
+            ref={toggleRef}
             type="button"
             onClick={() => setMenuOpen((v) => !v)}
-            className="md:hidden inline-flex items-center justify-center w-10 h-10 text-ink"
+            className="md:hidden inline-flex items-center justify-center w-11 h-11 text-ink"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
           >
             <span className="sr-only">Toggle menu</span>
             <svg
@@ -78,6 +86,8 @@ export default function Navbar() {
               stroke="currentColor"
               strokeWidth="1.5"
               strokeLinecap="round"
+              aria-hidden="true"
+              focusable="false"
             >
               {menuOpen ? (
                 <>
@@ -96,7 +106,7 @@ export default function Navbar() {
       </header>
 
       <AnimatePresence>
-        {menuOpen && <MobileMenu links={links} onClose={() => setMenuOpen(false)} />}
+        {menuOpen && <MobileMenu links={links} onClose={closeMenu} />}
       </AnimatePresence>
     </>
   );

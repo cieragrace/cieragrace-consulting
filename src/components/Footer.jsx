@@ -20,17 +20,17 @@ export default function Footer() {
             <p className="eyebrow mb-4">Pages</p>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/" className="text-ink-400 hover:text-copper-600 transition-colors">
+                <Link to="/" className="inline-block py-1.5 text-ink-400 hover:text-copper-600 transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-ink-400 hover:text-copper-600 transition-colors">
+                <Link to="/about" className="inline-block py-1.5 text-ink-400 hover:text-copper-600 transition-colors">
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-ink-400 hover:text-copper-600 transition-colors">
+                <Link to="/contact" className="inline-block py-1.5 text-ink-400 hover:text-copper-600 transition-colors">
                   Contact
                 </Link>
               </li>
@@ -43,7 +43,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:cieragraceconsulting@gmail.com"
-                  className="text-ink-400 hover:text-copper-600 transition-colors"
+                  className="inline-block py-1.5 text-ink-400 hover:text-copper-600 transition-colors"
                 >
                   cieragraceconsulting@gmail.com
                 </a>
@@ -51,7 +51,7 @@ export default function Footer() {
               <li>
                 <a
                   href="tel:+13036567380"
-                  className="text-ink-400 hover:text-copper-600 transition-colors"
+                  className="inline-block py-1.5 text-ink-400 hover:text-copper-600 transition-colors"
                 >
                   (303) 656-7380
                 </a>

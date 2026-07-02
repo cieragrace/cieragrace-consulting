@@ -7,7 +7,7 @@ export default function About() {
       <section className="container-page pt-20 pb-12 md:pt-32 md:pb-16">
         <div className="max-w-3xl">
           <p className="eyebrow mb-6">About the Studio</p>
-          <h1 className="font-serif text-5xl md:text-6xl leading-[1.05] text-ink">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-ink">
             Quiet design.
             <br />
             <span className="italic text-copper-600">Deliberate work.</span>

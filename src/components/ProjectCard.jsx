@@ -18,7 +18,7 @@ export default function ProjectCard({ project, index = 0 }) {
       className={`${tint.bg} h-full flex flex-col rounded-2xl p-8 md:p-10 border ${tint.border}`}
     >
       <div className="flex items-center justify-between gap-3 mb-4">
-        <span className={`eyebrow ${tint.accent} !text-copper-600`}>
+        <span className={`eyebrow ${tint.accent} !text-copper-700`}>
           {project.category}
         </span>
         {!isLive && (
@@ -57,7 +57,7 @@ export default function ProjectCard({ project, index = 0 }) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-flex items-center justify-center gap-1.5 px-7 py-3.5 text-sm tracking-wide rounded-2xl bg-copper-500 text-cream transition-colors duration-300 ease-out-soft hover:bg-copperDeep-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copperDeep-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+              className="inline-flex items-center justify-center gap-1.5 px-7 py-3.5 text-sm tracking-wide rounded-2xl bg-copperDeep-500 text-cream transition-colors duration-300 ease-out-soft hover:bg-copperDeep-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copperDeep-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
             >
               View live
               <span aria-hidden="true">↗</span>
@@ -68,7 +68,7 @@ export default function ProjectCard({ project, index = 0 }) {
                 href={project.repoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-ink-400 hover:text-copper-600 transition-colors duration-200 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copperDeep-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
+                className="inline-flex items-center gap-1.5 py-2 text-sm text-ink-400 hover:text-copper-600 transition-colors duration-200 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copperDeep-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
               >
                 Code
                 <span aria-hidden="true">↗</span>

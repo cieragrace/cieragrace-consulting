@@ -12,7 +12,7 @@ export default function Contact() {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="eyebrow mb-6">Contact</p>
-          <h1 className="font-serif text-5xl md:text-6xl leading-[1.05] text-ink">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl leading-[1.05] text-ink">
             Let's talk about
             <br />
             <span className="italic text-copper-600">your project.</span>

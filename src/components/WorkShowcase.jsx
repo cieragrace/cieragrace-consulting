@@ -3,7 +3,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 // Clean page-only preview: shows the looping interaction clip, falling back to
 // the static poster screenshot, falling back to a soft placeholder.
-function Preview({ project, placeholderClass }) {
+function Preview({ project, placeholderClass, reduceMotion }) {
   const isLive = project.status === 'live';
 
   if (!isLive || (!project.clip && !project.poster)) {
@@ -17,9 +17,10 @@ function Preview({ project, placeholderClass }) {
   return (
     <video
       key={project.clip || project.poster}
+      aria-label={`Preview of ${project.title}`}
       className="h-full w-full object-cover object-top"
       poster={project.poster || undefined}
-      autoPlay
+      autoPlay={!reduceMotion}
       loop
       muted
       playsInline
@@ -62,10 +63,10 @@ export default function WorkShowcase({
         placeholder: 'from-ink-700 to-ink-800 text-copper-300/80',
       }
     : {
-        eyebrow: '!text-copper-600',
+        eyebrow: '!text-copper-700',
         title: 'text-ink',
         intro: 'text-ink-400',
-        navIdleText: 'text-ink-300 group-hover:text-ink-400',
+        navIdleText: 'text-ink-400 group-hover:text-ink',
         navActiveText: 'text-ink',
         navActiveLine: 'bg-copper-500',
         navIdleLine: 'bg-copper-200 group-hover:bg-copper-300',
@@ -76,7 +77,7 @@ export default function WorkShowcase({
         soonChip: 'bg-cream-200 border-copper-100 text-ink-400',
         arrow:
           'border-copper-200 bg-cream text-ink hover:bg-copper-50 hover:text-copper-700 focus-visible:ring-offset-cream',
-        placeholder: 'from-cream-200 to-copper-50 text-copper-600/70',
+        placeholder: 'from-cream-200 to-copper-50 text-copperDeep-600',
       };
 
   const goTo = (next) => {
@@ -113,6 +114,46 @@ export default function WorkShowcase({
       onKeyDown={onKeyDown}
       className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16"
     >
+      {/* RIGHT — header + vertical project nav (source-order first for heading order) */}
+      <div className="order-1 lg:order-2 lg:col-span-5 lg:sticky lg:top-28 lg:max-h-[calc(100dvh-8rem)] lg:overflow-y-auto">
+        {eyebrow && <p className={`eyebrow mb-4 ${t.eyebrow}`}>{eyebrow}</p>}
+        {title && (
+          <h2 className={`font-serif text-4xl leading-[1.1] md:text-5xl ${t.title}`}>{title}</h2>
+        )}
+        {intro && <p className={`mt-5 text-base md:text-lg ${t.intro}`}>{intro}</p>}
+
+        <ul className="mt-9 hidden flex-col lg:flex" aria-label="Choose project">
+          {projects.map((p, i) => {
+            const isActive = i === active;
+            return (
+              <li key={`${p.title}-${i}`}>
+                <button
+                  type="button"
+                  onClick={() => goTo(i)}
+                  aria-current={isActive ? 'true' : undefined}
+                  className="group flex w-full items-center gap-4 py-3 text-left focus-visible:outline-none"
+                >
+                  <span
+                    className={[
+                      'h-px w-8 shrink-0 transition-all duration-300 ease-out-soft',
+                      isActive ? `w-12 ${t.navActiveLine}` : t.navIdleLine,
+                    ].join(' ')}
+                  />
+                  <span
+                    className={[
+                      'font-serif text-xl transition-colors duration-300 ease-out-soft',
+                      isActive ? t.navActiveText : t.navIdleText,
+                    ].join(' ')}
+                  >
+                    {p.title}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+
       {/* LEFT — vertical clip carousel */}
       <div className="order-2 lg:order-1 lg:col-span-7">
         <div className="flex items-stretch gap-4">
@@ -145,7 +186,7 @@ export default function WorkShowcase({
                 >
                   {/* Clip stage */}
                   <div className={`aspect-[16/10] overflow-hidden rounded-3xl border bg-ink ${t.stageBorder}`}>
-                    <Preview project={project} placeholderClass={t.placeholder} />
+                    <Preview project={project} placeholderClass={t.placeholder} reduceMotion={reduceMotion} />
                   </div>
 
                   {/* Meta */}
@@ -185,7 +226,7 @@ export default function WorkShowcase({
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                          className="inline-flex items-center justify-center gap-1.5 rounded-2xl bg-copper-500 px-7 py-3.5 text-sm tracking-wide text-cream transition-colors duration-300 ease-out-soft hover:bg-copperDeep-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copper-400"
+                          className="inline-flex items-center justify-center gap-1.5 rounded-2xl bg-copperDeep-500 px-7 py-3.5 text-sm tracking-wide text-cream transition-colors duration-300 ease-out-soft hover:bg-copperDeep-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copper-400"
                         >
                           View live
                           <span aria-hidden="true">↗</span>
@@ -196,7 +237,7 @@ export default function WorkShowcase({
                             href={project.repoUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`inline-flex items-center gap-1.5 rounded-md text-sm transition-colors duration-200 ${t.codeLink}`}
+                            className={`inline-flex items-center gap-1.5 rounded-md py-2 text-sm transition-colors duration-200 ${t.codeLink}`}
                           >
                             Code
                             <span aria-hidden="true">↗</span>
@@ -220,46 +261,6 @@ export default function WorkShowcase({
             </div>
           </div>
         </div>
-      </div>
-
-      {/* RIGHT — header + vertical project nav */}
-      <div className="order-1 lg:order-2 lg:col-span-5 lg:sticky lg:top-28">
-        {eyebrow && <p className={`eyebrow mb-4 ${t.eyebrow}`}>{eyebrow}</p>}
-        {title && (
-          <h2 className={`font-serif text-4xl leading-[1.1] md:text-5xl ${t.title}`}>{title}</h2>
-        )}
-        {intro && <p className={`mt-5 text-base md:text-lg ${t.intro}`}>{intro}</p>}
-
-        <ul className="mt-9 hidden flex-col lg:flex" role="tablist" aria-label="Choose project">
-          {projects.map((p, i) => {
-            const isActive = i === active;
-            return (
-              <li key={`${p.title}-${i}`}>
-                <button
-                  type="button"
-                  onClick={() => goTo(i)}
-                  aria-current={isActive ? 'true' : undefined}
-                  className="group flex w-full items-center gap-4 py-3 text-left focus-visible:outline-none"
-                >
-                  <span
-                    className={[
-                      'h-px w-8 shrink-0 transition-all duration-300 ease-out-soft',
-                      isActive ? `w-12 ${t.navActiveLine}` : t.navIdleLine,
-                    ].join(' ')}
-                  />
-                  <span
-                    className={[
-                      'font-serif text-xl transition-colors duration-300 ease-out-soft',
-                      isActive ? t.navActiveText : t.navIdleText,
-                    ].join(' ')}
-                  >
-                    {p.title}
-                  </span>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
       </div>
     </div>
   );
