@@ -7,7 +7,7 @@ const baseClass =
 const variants = {
   primary: 'bg-copperDeep-500 text-cream hover:bg-copperDeep-600',
   secondary: 'bg-transparent text-ink border border-ink hover:bg-ink hover:text-cream',
-  ghost: 'bg-transparent text-ink hover:text-copper-600',
+  ghost: 'bg-transparent text-ink hover:text-copper-700',
 };
 
 export default function CTAButton({

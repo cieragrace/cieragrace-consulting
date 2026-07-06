@@ -7,8 +7,14 @@ import PremiumTierSection from '../components/PremiumTierSection.jsx';
 import CTAButton from '../components/CTAButton.jsx';
 import services from '../data/services.js';
 import projects from '../data/projects.js';
+import usePageMeta from '../hooks/usePageMeta.js';
 
 export default function Home() {
+  usePageMeta(
+    'Ciera Grace Consulting — Web Design & Digital Strategy',
+    'Ciera Grace Consulting LLC — custom website design, brand-aligned development, and conversion-focused digital experiences for considered businesses.'
+  );
+
   return (
     <>
       <Hero />
@@ -22,7 +28,7 @@ export default function Home() {
       >
         <Link
           to="/about"
-          className="inline-flex items-center gap-2 text-sm text-ink hover:text-copper-600 transition-colors duration-200"
+          className="inline-flex items-center gap-2 text-sm text-ink hover:text-copper-700 transition-colors duration-200"
         >
           Read more about the studio
           <span aria-hidden="true">→</span>

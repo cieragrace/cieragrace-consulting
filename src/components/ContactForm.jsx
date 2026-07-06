@@ -7,6 +7,7 @@ const initialState = {
   email: '',
   phone: '',
   message: '',
+  botcheck: '', // honeypot — real users never fill this
 };
 
 export default function ContactForm() {
@@ -48,36 +49,28 @@ export default function ContactForm() {
     setStatus('submitting');
 
     try {
-      // ============================================================
-      // TODO: integrate email service
-      // ------------------------------------------------------------
-      // Swap this block for a real call when ready. Examples:
-      //
-      //   Formspree:
-      //     await fetch('https://formspree.io/f/{your-id}', {
-      //       method: 'POST',
-      //       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      //       body: JSON.stringify(form),
-      //     });
-      //
-      //   Resend (via your own API route):
-      //     await fetch('/api/contact', {
-      //       method: 'POST',
-      //       headers: { 'Content-Type': 'application/json' },
-      //       body: JSON.stringify(form),
-      //     });
-      //
-      // The payload shape (`form`) already matches what most services expect.
-      // ============================================================
-      console.log('[ContactForm] Submitted payload:', form);
-      await new Promise((resolve) => setTimeout(resolve, 900));
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: 'e2565b2d-0a79-4a39-93dd-03ae015b9b48',
+          subject: 'New inquiry — cieragrace.com',
+          from_name: 'CGC Website',
+          ...form,
+        }),
+      });
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok || !result?.success) {
+        throw new Error(result?.message || `Request failed with status ${response.status}`);
+      }
 
       setStatus('success');
       setForm(initialState);
     } catch (err) {
       console.error('[ContactForm] Submission failed:', err);
       setStatus('error');
-      setErrorMessage('Something went wrong. Please try again or email us directly.');
+      setErrorMessage('Something went wrong sending your message — your note is still here below.');
     }
   };
 
@@ -93,9 +86,21 @@ export default function ContactForm() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
+      {/* Honeypot (Web3Forms spam check) — hidden from real users */}
+      <input
+        type="text"
+        name="botcheck"
+        value={form.botcheck}
+        onChange={handleChange}
+        style={{ display: 'none' }}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
+
       <div>
         <label htmlFor="name" className="block text-sm text-ink mb-2">
-          Name <span className="text-copper-600">*</span>
+          Name <span className="text-copper-700">*</span>
         </label>
         <input
           id="name"
@@ -114,7 +119,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="email" className="block text-sm text-ink mb-2">
-          Email <span className="text-copper-600">*</span>
+          Email <span className="text-copper-700">*</span>
         </label>
         <input
           id="email"
@@ -149,7 +154,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="message" className="block text-sm text-ink mb-2">
-          Message <span className="text-copper-600">*</span>
+          Message <span className="text-copper-700">*</span>
         </label>
         <textarea
           id="message"
@@ -168,6 +173,15 @@ export default function ContactForm() {
       {status === 'error' && errorMessage && (
         <p id="form-error" role="alert" className="text-sm text-red-700">
           {errorMessage}
+          {!invalidField && (
+            <>
+              {' '}Please try again, or email{' '}
+              <a href="mailto:cieragraceconsulting@gmail.com" className="underline">
+                cieragraceconsulting@gmail.com
+              </a>{' '}
+              directly.
+            </>
+          )}
         </p>
       )}
 

@@ -1,4 +1,4 @@
-// Selected Work — designed for 5 slots (owner will end with 5).
+// Selected Work — the list grows as projects ship; order = display order.
 // status: 'live' (full data) | 'soon' (graceful placeholder, no fake links).
 // preview: { poster } static fallback image, { clip } short looping interaction video.
 const projects = [

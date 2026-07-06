@@ -16,9 +16,9 @@ export default function PremiumTierSection() {
           <motion.div
             key={option.title}
             className="bg-cream rounded-2xl p-7 md:p-8 border border-copper-100"
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            initial={{ y: 16 }}
+            whileInView={{ y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{
               duration: 0.5,
               ease: [0.22, 1, 0.36, 1],

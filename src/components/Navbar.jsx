@@ -58,7 +58,7 @@ export default function Navbar() {
                   className={({ isActive }) =>
                     [
                       'text-sm tracking-wide transition-colors duration-200',
-                      isActive ? 'text-ink' : 'text-ink-400 hover:text-copper-600',
+                      isActive ? 'text-ink' : 'text-ink-400 hover:text-copper-700',
                     ].join(' ')
                   }
                 >

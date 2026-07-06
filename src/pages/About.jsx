@@ -1,7 +1,13 @@
 import SectionWrapper from '../components/SectionWrapper.jsx';
 import CTAButton from '../components/CTAButton.jsx';
+import usePageMeta from '../hooks/usePageMeta.js';
 
 export default function About() {
+  usePageMeta(
+    'About — Ciera Grace Consulting',
+    'A boutique web design and development studio partnering with a small number of clients each year to create considered digital experiences.'
+  );
+
   return (
     <>
       <section className="container-page pt-20 pb-12 md:pt-32 md:pb-16">
@@ -49,7 +55,7 @@ export default function About() {
       >
         <div className="grid gap-10 md:gap-12 md:grid-cols-3 max-w-5xl">
           <div>
-            <p className="font-serif text-sm text-copper-600 mb-3">01</p>
+            <p className="font-serif text-sm text-copper-700 mb-3">01</p>
             <h3 className="font-serif text-2xl text-ink mb-3">Discover</h3>
             <p>
               We start with a working session to understand your business, your
@@ -57,7 +63,7 @@ export default function About() {
             </p>
           </div>
           <div>
-            <p className="font-serif text-sm text-copper-600 mb-3">02</p>
+            <p className="font-serif text-sm text-copper-700 mb-3">02</p>
             <h3 className="font-serif text-2xl text-ink mb-3">Design</h3>
             <p>
               Layouts, type, and structure are designed in iterations — with
@@ -65,7 +71,7 @@ export default function About() {
             </p>
           </div>
           <div>
-            <p className="font-serif text-sm text-copper-600 mb-3">03</p>
+            <p className="font-serif text-sm text-copper-700 mb-3">03</p>
             <h3 className="font-serif text-2xl text-ink mb-3">Build & Launch</h3>
             <p>
               Hand-coded front-ends, accessible by default, fast on every

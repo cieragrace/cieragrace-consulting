@@ -89,13 +89,13 @@ export default function MobileMenu({ links, onClose, triggerRef }) {
           <p className="text-sm text-ink-400">Ciera Grace Consulting LLC</p>
           <a
             href="mailto:cieragraceconsulting@gmail.com"
-            className="text-sm text-ink hover:text-copper-600 transition-colors flex items-center min-h-[44px]"
+            className="text-sm text-ink hover:text-copper-700 transition-colors flex items-center min-h-[44px]"
           >
             cieragraceconsulting@gmail.com
           </a>
           <a
             href="tel:+13036567380"
-            className="text-sm text-ink hover:text-copper-600 transition-colors flex items-center min-h-[44px]"
+            className="text-sm text-ink hover:text-copper-700 transition-colors flex items-center min-h-[44px]"
           >
             (303) 656-7380
           </a>

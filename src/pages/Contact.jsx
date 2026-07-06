@@ -1,7 +1,13 @@
 import { motion } from 'framer-motion';
 import ContactForm from '../components/ContactForm.jsx';
+import usePageMeta from '../hooks/usePageMeta.js';
 
 export default function Contact() {
+  usePageMeta(
+    'Contact — Ciera Grace Consulting',
+    "Share a little about your project and get a reply from Ciera Grace Consulting within one business day."
+  );
+
   return (
     <section className="container-page pt-20 pb-24 md:pt-32 md:pb-32">
       <div className="grid gap-14 lg:gap-20 lg:grid-cols-2">
