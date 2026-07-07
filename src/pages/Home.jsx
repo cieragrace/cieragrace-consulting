@@ -39,7 +39,7 @@ export default function Home() {
       <SectionWrapper
         id="services"
         eyebrow="Services"
-        title="What we do."
+        title="What I do."
         intro="From your website to your logo, your strategy to your documents — a connected set of services that keep your business looking and working its best."
         className="bg-mint-50"
       >
@@ -78,8 +78,8 @@ export default function Home() {
             Have a project in mind?
           </h2>
           <p className="mt-5 text-ink-400 text-lg">
-            We're currently booking new engagements. Send a note with a little
-            about your work and we'll be in touch within one business day.
+            I'm currently booking new engagements. Send a note with a little
+            about your work and I'll be in touch within one business day.
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-3">

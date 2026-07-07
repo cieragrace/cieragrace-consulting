@@ -56,6 +56,16 @@ export default function Footer() {
                   (303) 656-7380
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://github.com/cieragrace"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block py-1.5 text-ink-400 hover:text-copper-700 transition-colors"
+                >
+                  GitHub ↗
+                </a>
+              </li>
               <li className="text-ink-400 pt-1">Based in Colorado · building beautifully, anywhere.</li>
             </ul>
           </div>
