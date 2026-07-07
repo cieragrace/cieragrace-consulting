@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import LogoMark from './LogoMark.jsx';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -8,9 +9,12 @@ export default function Footer() {
       <div className="container-page py-12 md:py-16">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <p className="font-serif text-xl text-ink">
-              Ciera Grace <span className="text-copper-600">Consulting</span>
-            </p>
+            <div className="flex items-center gap-2.5">
+              <LogoMark className="h-7 w-auto shrink-0" />
+              <p className="font-serif text-xl text-ink">
+                Ciera Grace <span className="text-copper-600">Consulting</span>
+              </p>
+            </div>
             <p className="mt-3 text-sm text-ink-400 max-w-xs">
               Web design and digital strategy for considered businesses.
             </p>

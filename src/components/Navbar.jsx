@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import LogoMark from './LogoMark.jsx';
 import MobileMenu from './MobileMenu.jsx';
 
 const links = [
@@ -43,10 +44,13 @@ export default function Navbar() {
         <nav className="container-page flex items-center justify-between h-16 md:h-20">
           <Link
             to="/"
-            className="font-serif text-lg sm:text-xl md:text-2xl tracking-tightish text-ink whitespace-nowrap"
+            className="flex items-center gap-2.5 font-serif text-lg sm:text-xl md:text-2xl tracking-tightish text-ink whitespace-nowrap"
             aria-label="Ciera Grace Consulting — home"
           >
-            Ciera Grace <span className="text-copper-600">Consulting</span>
+            <LogoMark className="h-7 md:h-8 w-auto shrink-0" />
+            <span>
+              Ciera Grace <span className="text-copper-600">Consulting</span>
+            </span>
           </Link>
 
           <ul className="hidden md:flex items-center gap-10">
