@@ -1,12 +1,10 @@
 import SectionWrapper from '../components/SectionWrapper.jsx';
 import CTAButton from '../components/CTAButton.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
+import seo from '../data/seo.js';
 
 export default function About() {
-  usePageMeta(
-    'About — Ciera Grace Consulting',
-    'Ciera Grace Consulting is Ciera Muniz — a Colorado designer-developer running a one-woman studio, partnering with a small number of clients each year.'
-  );
+  usePageMeta(seo['/about'].title, seo['/about'].description);
 
   return (
     <>
@@ -34,7 +32,8 @@ export default function About() {
       >
         <div className="max-w-prose">
           <p className="mb-5">
-            I run Ciera Grace Consulting from Colorado — a one-woman studio.
+            I run Ciera Grace Consulting from Denver, Colorado — a one-woman
+            studio.
           </p>
           <p className="mb-5">
             Before this I went through Turing&apos;s software engineering

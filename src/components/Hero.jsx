@@ -21,7 +21,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            Colorado-based · Creating for you anywhere
+            Denver, Colorado · Creating for you anywhere
           </motion.p>
 
           <motion.h1

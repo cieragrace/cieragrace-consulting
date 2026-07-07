@@ -8,12 +8,10 @@ import CTAButton from '../components/CTAButton.jsx';
 import services from '../data/services.js';
 import projects from '../data/projects.js';
 import usePageMeta from '../hooks/usePageMeta.js';
+import seo from '../data/seo.js';
 
 export default function Home() {
-  usePageMeta(
-    'Ciera Grace Consulting — Web Design & Digital Strategy',
-    'Ciera Grace Consulting LLC — custom website design, brand-aligned development, and conversion-focused digital experiences for considered businesses.'
-  );
+  usePageMeta(seo['/'].title, seo['/'].description);
 
   return (
     <>
@@ -24,7 +22,7 @@ export default function Home() {
         id="about-preview"
         eyebrow="The Studio"
         title="A small studio with a focused practice."
-        intro="Ciera Grace Consulting LLC is a one-woman web design studio working with founders, creatives, and service-led businesses who want their digital presence to match the quality of their work."
+        intro="Ciera Grace Consulting LLC is a one-woman web design studio in Denver, Colorado, working with founders, creatives, and service-led businesses who want their digital presence to match the quality of their work."
       >
         <Link
           to="/about"
@@ -93,7 +91,7 @@ export default function Home() {
               or email cieragraceconsulting@gmail.com
             </a>
             <p className="text-xs text-ink-400 italic mt-2">
-              Colorado-based · creating beautifully for clients anywhere.
+              Based in Denver · creating beautifully for clients anywhere.
             </p>
           </div>
         </div>

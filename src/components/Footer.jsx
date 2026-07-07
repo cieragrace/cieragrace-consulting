@@ -16,7 +16,8 @@ export default function Footer() {
               </p>
             </div>
             <p className="mt-3 text-sm text-ink-400 max-w-xs">
-              Web design and digital strategy for considered businesses.
+              Web design and digital strategy for considered businesses, from
+              Denver, Colorado.
             </p>
           </div>
 
@@ -70,7 +71,7 @@ export default function Footer() {
                   GitHub ↗
                 </a>
               </li>
-              <li className="text-ink-400 pt-1">Based in Colorado · building beautifully, anywhere.</li>
+              <li className="text-ink-400 pt-1">Based in Denver, Colorado · building beautifully, anywhere.</li>
             </ul>
           </div>
         </div>

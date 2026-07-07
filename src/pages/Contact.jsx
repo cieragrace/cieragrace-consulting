@@ -1,12 +1,10 @@
 import { motion } from 'framer-motion';
 import ContactForm from '../components/ContactForm.jsx';
 import usePageMeta from '../hooks/usePageMeta.js';
+import seo from '../data/seo.js';
 
 export default function Contact() {
-  usePageMeta(
-    'Contact — Ciera Grace Consulting',
-    "Share a little about your project and get a reply from Ciera Grace Consulting within one business day."
-  );
+  usePageMeta(seo['/contact'].title, seo['/contact'].description);
 
   return (
     <section className="container-page pt-20 pb-24 md:pt-32 md:pb-32">
@@ -50,7 +48,7 @@ export default function Contact() {
             <div>
               <p className="eyebrow mb-2">Where</p>
               <p className="text-ink">
-                Colorado-based —{' '}
+                Denver, Colorado —{' '}
                 <span className="italic text-copper-600">creating for you anywhere.</span>
               </p>
             </div>

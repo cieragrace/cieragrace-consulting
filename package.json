@@ -6,7 +6,7 @@
   "description": "Ciera Grace Consulting LLC - portfolio/demo site",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-route-html.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
