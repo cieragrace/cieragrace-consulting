@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import CTAButton from './CTAButton.jsx';
+import LogoMark from './LogoMark.jsx';
 
 export default function Hero() {
   return (
@@ -12,9 +13,15 @@ export default function Hero() {
         aria-hidden="true"
         className="absolute -top-32 -right-32 w-[40rem] h-[40rem] rounded-full bg-lavender-200/50 blur-3xl -z-10"
       />
-
-      <div className="container-page pt-20 pb-24 md:pt-32 md:pb-36 lg:pt-40 lg:pb-44">
+      <div className="container-page pt-14 pb-24 md:pt-20 md:pb-36 lg:pt-24 lg:pb-44">
         <div className="max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <LogoMark className="h-32 md:h-44 lg:h-52 w-auto mb-8 lg:mb-10" />
+          </motion.div>
           <motion.p
             className="eyebrow mb-6"
             initial={{ opacity: 0, y: 12 }}
