@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const baseClass =
-  'inline-flex items-center justify-center px-7 py-3.5 text-sm tracking-wide rounded-2xl transition-colors duration-300 ease-out-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copperDeep-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream';
+  'inline-flex items-center justify-center px-7 py-3.5 text-sm tracking-wide rounded-lg transition-colors duration-300 ease-out-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copperDeep-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream';
 
 const variants = {
   primary: 'bg-copperDeep-500 text-cream hover:bg-copperDeep-600',

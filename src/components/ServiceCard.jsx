@@ -1,20 +1,11 @@
 import { motion } from 'framer-motion';
 
-// Rotating pastel tints for the "fun but tasteful" feel.
-// One effect per card (tinted bg) — no stacked shadow + ring + hover wash.
-const tints = [
-  { bg: 'bg-blush-50', border: 'border-blush-200', accent: 'text-copper-700' },
-  { bg: 'bg-peach-50', border: 'border-peach-200', accent: 'text-copperDeep-500' },
-  { bg: 'bg-mint-50', border: 'border-mint-200', accent: 'text-copper-700' },
-  { bg: 'bg-lavender-50', border: 'border-lavender-200', accent: 'text-copperDeep-500' },
-];
-
+// One quiet treatment for every card — the numbered serif label carries the
+// personality; no rotating tints, no stacked effects.
 export default function ServiceCard({ title, description, index = 0 }) {
-  const tint = tints[index % tints.length];
-
   return (
     <motion.article
-      className={`${tint.bg} rounded-2xl p-8 md:p-10 border ${tint.border}`}
+      className="bg-cream-50 rounded-2xl p-8 md:p-10 border border-copper-100"
       initial={{ y: 16 }}
       whileInView={{ y: 0 }}
       viewport={{ once: true, amount: 0.1 }}
@@ -25,7 +16,7 @@ export default function ServiceCard({ title, description, index = 0 }) {
       }}
     >
       <div className="flex items-baseline gap-3 mb-4">
-        <span className={`font-serif text-sm ${tint.accent}`}>
+        <span className="font-serif text-sm text-copper-700">
           0{index + 1}
         </span>
       </div>

@@ -75,7 +75,7 @@ export default function ContactForm() {
   };
 
   const inputBase =
-    'w-full px-4 py-3.5 bg-cream border border-copper-100 rounded-2xl text-ink placeholder:text-ink-400 focus:outline-none focus:border-copper-500 focus:ring-2 focus:ring-copperDeep-500/40 transition-colors duration-200';
+    'w-full px-4 py-3.5 bg-cream border border-copper-100 rounded-lg text-ink placeholder:text-ink-400 focus:outline-none focus:border-copper-500 focus:ring-2 focus:ring-copperDeep-500/40 transition-colors duration-200';
 
   return (
     <motion.form

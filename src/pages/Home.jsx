@@ -39,7 +39,7 @@ export default function Home() {
         eyebrow="Services"
         title="What I do."
         intro="From your website to your logo, your strategy to your documents — a connected set of services that keep your business looking and working its best."
-        className="bg-mint-50"
+        className="bg-cream-200/50"
       >
         <div className="grid gap-6 md:gap-7 sm:grid-cols-2">
           {services.map((service, i) => (
@@ -53,15 +53,22 @@ export default function Home() {
         </div>
       </SectionWrapper>
 
-      {/* Selected Work */}
+      {/* Selected Work — featured picks; the full shelf lives at /work */}
       <section id="work" className="py-20 md:py-28">
         <div className="container-page">
           <WorkShowcase
-            projects={projects}
+            projects={projects.filter((p) => p.featured)}
             eyebrow="Selected Work"
             title="Things we've shipped."
-            intro="A small, growing shelf of real builds — full-stack apps and hand-crafted client sites."
+            intro="A few favorites from the shelf — a full-stack app, a hand-built browser arcade, and a crafted client site."
           />
+          <Link
+            to="/work"
+            className="mt-10 inline-flex items-center gap-2 text-sm text-ink hover:text-copper-700 transition-colors duration-200"
+          >
+            View the full portfolio
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </section>
 
@@ -91,7 +98,7 @@ export default function Home() {
               or email cieragraceconsulting@gmail.com
             </a>
             <p className="text-xs text-ink-400 italic mt-2">
-              Based in Denver · creating beautifully for clients anywhere.
+              Based in Denver, Colorado · working with clients anywhere.
             </p>
           </div>
         </div>

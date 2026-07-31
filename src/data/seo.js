@@ -11,6 +11,15 @@ const seo = {
     description:
       'Ciera Grace Consulting is a Denver, Colorado web design studio — custom, hand-coded websites, brand-aligned development, and conversion-focused digital experiences for considered businesses.',
   },
+  // image (optional): route-specific Open Graph / Twitter image, baked into the
+  // static per-route HTML so LinkedIn & co. show it when this URL is shared.
+  '/work': {
+    title: 'Portfolio — Web Apps, Browser Games & Client Sites | Ciera Grace Consulting',
+    description:
+      'The portfolio of Ciera Muniz, Denver web designer-developer: full-stack apps in React, Next.js, and TypeScript, a hand-built browser game arcade, and crafted client sites — every project live, with source code on GitHub.',
+    image: '/og-work.jpg',
+    imageAlt: 'Neon Grid Arcade — a synthwave hall of hand-built browser games, featured in the Ciera Grace Consulting portfolio.',
+  },
   '/about': {
     title: 'About — Ciera Grace Consulting | Denver Web Designer',
     description:

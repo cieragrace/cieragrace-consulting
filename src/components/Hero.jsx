@@ -7,11 +7,11 @@ export default function Hero() {
     <section className="relative overflow-hidden">
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-gradient-to-br from-copper-100 via-blush-100 to-peach-100"
+        className="absolute inset-0 -z-10 bg-gradient-to-br from-cream-50 via-cream-200 to-copper-100"
       />
       <div
         aria-hidden="true"
-        className="absolute -top-32 -right-32 w-[40rem] h-[40rem] rounded-full bg-lavender-200/50 blur-3xl -z-10"
+        className="absolute -top-32 -right-32 w-[40rem] h-[40rem] rounded-full bg-copper-200/40 blur-3xl -z-10"
       />
       <div className="container-page pt-14 pb-24 md:pt-20 md:pb-36 lg:pt-24 lg:pb-44">
         <div className="max-w-4xl">
@@ -28,7 +28,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-            Denver, Colorado · Creating for you anywhere
+            Denver, Colorado · Working with clients anywhere
           </motion.p>
 
           <motion.h1

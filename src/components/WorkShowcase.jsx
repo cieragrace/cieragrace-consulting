@@ -94,7 +94,7 @@ export default function WorkShowcase({
                 <div className="flex items-center gap-3">
                   <span className="eyebrow !text-copper-700">{project.category}</span>
                   {project.status !== 'live' && (
-                    <span className="inline-flex items-center rounded-full border border-copper-100 bg-cream-200 px-3 py-1 text-[0.7rem] font-medium uppercase tracking-[0.14em] text-ink-400">
+                    <span className="inline-flex items-center rounded-md border border-copper-100 bg-cream-200 px-3 py-1 text-[0.7rem] font-medium uppercase tracking-[0.14em] text-ink-400">
                       Coming soon
                     </span>
                   )}
@@ -110,7 +110,7 @@ export default function WorkShowcase({
                     {project.stack.map((tech) => (
                       <li
                         key={tech}
-                        className="rounded-full bg-copper-50 px-3 py-1 text-xs font-medium text-copperDeep-600"
+                        className="rounded-md bg-copper-50 px-3 py-1 text-xs font-medium text-copperDeep-600"
                       >
                         {tech}
                       </li>
@@ -127,7 +127,7 @@ export default function WorkShowcase({
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                      className="inline-flex items-center justify-center gap-1.5 rounded-2xl bg-copperDeep-500 px-7 py-3.5 text-sm tracking-wide text-cream transition-colors duration-300 ease-out-soft hover:bg-copperDeep-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copper-400"
+                      className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-copperDeep-500 px-7 py-3.5 text-sm tracking-wide text-cream transition-colors duration-300 ease-out-soft hover:bg-copperDeep-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copper-400"
                     >
                       View live
                       <span aria-hidden="true">↗</span>

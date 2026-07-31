@@ -85,7 +85,7 @@ export default function About() {
         id="approach"
         eyebrow="The Approach"
         title="How I work."
-        className="bg-lavender-50"
+        className="bg-cream-200/50"
       >
         <div className="grid gap-10 md:gap-12 md:grid-cols-3 max-w-5xl">
           <div>

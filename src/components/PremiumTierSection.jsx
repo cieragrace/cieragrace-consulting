@@ -9,7 +9,7 @@ export default function PremiumTierSection() {
       eyebrow="Premium Build Options"
       title="Upgrades for when the standard build isn't enough."
       intro="Every project starts with a strong foundation. When the work calls for more — commerce, authentication, recurring revenue, real-time data — these are the systems we layer in."
-      className="bg-blush-50"
+      className="bg-cream-200/50"
     >
       <div className="grid gap-5 md:gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {premiumOptions.map((option, i) => (
