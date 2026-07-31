@@ -39,7 +39,7 @@ export default function Home() {
         eyebrow="Services"
         title="What I do."
         intro="From your website to your logo, your strategy to your documents — a connected set of services that keep your business looking and working its best."
-        className="bg-mint-50"
+        className="bg-cream-200/50"
       >
         <div className="grid gap-6 md:gap-7 sm:grid-cols-2">
           {services.map((service, i) => (
@@ -98,7 +98,7 @@ export default function Home() {
               or email cieragraceconsulting@gmail.com
             </a>
             <p className="text-xs text-ink-400 italic mt-2">
-              Based in Denver · creating beautifully for clients anywhere.
+              Based in Denver, Colorado · working with clients anywhere.
             </p>
           </div>
         </div>

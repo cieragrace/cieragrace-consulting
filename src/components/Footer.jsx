@@ -86,7 +86,7 @@ export default function Footer() {
                   LinkedIn ↗
                 </a>
               </li>
-              <li className="text-ink-400 pt-1">Based in Denver, Colorado · building beautifully, anywhere.</li>
+              <li className="text-ink-400 pt-1">Based in Denver, Colorado · working with clients anywhere.</li>
             </ul>
           </div>
         </div>

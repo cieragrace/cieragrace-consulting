@@ -29,7 +29,7 @@ function Preview({ project, reduceMotion }) {
   if (project.status !== 'live' || (!project.clip && !project.poster)) {
     return (
       <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-cream-200 to-copper-50 text-copperDeep-600">
-        <span className="font-serif text-2xl italic">In the workshop</span>
+        <span className="font-serif text-2xl italic">In progress</span>
       </div>
     );
   }
@@ -67,24 +67,16 @@ export default function BrowserFrame({ project, reduceMotion }) {
 
   return (
     <figure className="overflow-hidden rounded-2xl border border-copper-100 bg-cream-50 shadow-soft">
-      {/* Chrome bar */}
-      <div className="flex items-center gap-3 border-b border-copper-100 bg-ink-50/70 px-4 py-2.5">
-        <span className="flex shrink-0 gap-1.5" aria-hidden="true">
-          <span className="h-2.5 w-2.5 rounded-full bg-ink-200" />
-          <span className="h-2.5 w-2.5 rounded-full bg-ink-200" />
-          <span className="h-2.5 w-2.5 rounded-full bg-ink-200" />
+      {/* Chrome bar — just the address, no toy window dots */}
+      <div className="flex items-center justify-center border-b border-copper-100 bg-ink-50/70 px-4 py-2.5">
+        <span
+          className={[
+            'max-w-full truncate rounded-md border border-copper-100/80 bg-cream-50 px-4 py-1 text-xs tracking-wide',
+            domain ? 'text-ink-400' : 'italic text-ink-300',
+          ].join(' ')}
+        >
+          {domain || 'coming soon'}
         </span>
-        <span className="flex min-w-0 flex-1 justify-center">
-          <span
-            className={[
-              'max-w-full truncate rounded-full border border-copper-100/80 bg-cream-50 px-4 py-1 text-xs tracking-wide',
-              domain ? 'text-ink-400' : 'italic text-ink-300',
-            ].join(' ')}
-          >
-            {domain || 'a new address, soon'}
-          </span>
-        </span>
-        <span className="hidden w-[38px] shrink-0 sm:block" aria-hidden="true" />
       </div>
 
       {/* Media stage */}

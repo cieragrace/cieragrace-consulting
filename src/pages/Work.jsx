@@ -46,7 +46,7 @@ function ArcadeSpotlight({ project }) {
   return (
     <article
       aria-label={`Featured project: ${project.title}`}
-      className="overflow-hidden rounded-3xl bg-ink"
+      className="overflow-hidden rounded-2xl bg-ink"
     >
       <div className="grid lg:grid-cols-2">
         <a
@@ -65,10 +65,8 @@ function ArcadeSpotlight({ project }) {
         </a>
 
         <div className="flex flex-col justify-center p-8 md:p-12">
-          <p className="text-[0.78rem] font-medium uppercase tracking-[0.14em]">
-            <span className="bg-gradient-to-r from-fuchsia-400 to-cyan-300 bg-clip-text text-transparent">
-              Featured · {project.category}
-            </span>
+          <p className="text-[0.78rem] font-medium uppercase tracking-[0.14em] text-cream/60">
+            Featured · {project.category}
           </p>
           <h2 className="mt-3 font-serif text-3xl leading-tight text-cream md:text-4xl">
             {project.title}
@@ -79,7 +77,7 @@ function ArcadeSpotlight({ project }) {
             {project.stack.map((tech) => (
               <li
                 key={tech}
-                className="rounded-full bg-cream/10 px-3 py-1 text-xs font-medium text-cream/80"
+                className="rounded-md bg-cream/10 px-3 py-1 text-xs font-medium text-cream/80"
               >
                 {tech}
               </li>
@@ -91,7 +89,7 @@ function ArcadeSpotlight({ project }) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-1.5 rounded-2xl bg-cream px-7 py-3.5 text-sm tracking-wide text-ink transition-colors duration-300 ease-out-soft hover:bg-cream-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+              className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-cream px-7 py-3.5 text-sm tracking-wide text-ink transition-colors duration-300 ease-out-soft hover:bg-cream-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copper-400"
             >
               Play the arcade
               <span aria-hidden="true">↗</span>
@@ -175,7 +173,7 @@ export default function Work() {
         eyebrow="Client Work"
         title="Client sites."
         intro="Hand-coded sites for real businesses — no page builders, no templates. Designed around each client's brand and built to convert."
-        className="bg-mint-50"
+        className="bg-cream-200/50"
       >
         <div className="grid gap-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
           {clientSites.map((project) => (
@@ -189,11 +187,11 @@ export default function Work() {
         <div className="mx-auto max-w-2xl text-center">
           <p className="eyebrow mb-4">Get In Touch</p>
           <h2 className="font-serif text-4xl md:text-5xl text-ink leading-[1.1]">
-            Like what you see?
+            Start a project.
           </h2>
           <p className="mt-5 text-ink-400 text-lg">
-            Whether you need a site like these or want to talk shop about how
-            one was built — I answer every note personally.
+            Whether you need a site like these or a custom build scoped from
+            scratch — I answer every note personally.
           </p>
           <div className="mt-8 flex flex-col items-center gap-3">
             <CTAButton to="/contact" variant="primary">

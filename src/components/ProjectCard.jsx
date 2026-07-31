@@ -17,7 +17,7 @@ export default function ProjectCard({ project }) {
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-cream-200 to-copper-50 text-copperDeep-600">
-            <span className="font-serif text-xl italic">In the workshop</span>
+            <span className="font-serif text-xl italic">In progress</span>
           </div>
         )}
       </div>
@@ -36,7 +36,7 @@ export default function ProjectCard({ project }) {
             {project.stack.map((tech) => (
               <li
                 key={tech}
-                className="rounded-full bg-copper-50 px-3 py-1 text-xs font-medium text-copperDeep-600"
+                className="rounded-md bg-copper-50 px-3 py-1 text-xs font-medium text-copperDeep-600"
               >
                 {tech}
               </li>
