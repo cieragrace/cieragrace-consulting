@@ -53,15 +53,22 @@ export default function Home() {
         </div>
       </SectionWrapper>
 
-      {/* Selected Work */}
+      {/* Selected Work — featured picks; the full shelf lives at /work */}
       <section id="work" className="py-20 md:py-28">
         <div className="container-page">
           <WorkShowcase
-            projects={projects}
+            projects={projects.filter((p) => p.featured)}
             eyebrow="Selected Work"
             title="Things we've shipped."
-            intro="A small, growing shelf of real builds — full-stack apps and hand-crafted client sites."
+            intro="A few favorites from the shelf — a full-stack app, a hand-built browser arcade, and a crafted client site."
           />
+          <Link
+            to="/work"
+            className="mt-10 inline-flex items-center gap-2 text-sm text-ink hover:text-copper-700 transition-colors duration-200"
+          >
+            View the full portfolio
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </section>
 

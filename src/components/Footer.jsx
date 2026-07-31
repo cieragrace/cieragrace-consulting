@@ -30,6 +30,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/work" className="inline-block py-1.5 text-ink-400 hover:text-copper-700 transition-colors">
+                  Work
+                </Link>
+              </li>
+              <li>
                 <Link to="/about" className="inline-block py-1.5 text-ink-400 hover:text-copper-700 transition-colors">
                   About
                 </Link>
@@ -69,6 +74,16 @@ export default function Footer() {
                   className="inline-block py-1.5 text-ink-400 hover:text-copper-700 transition-colors"
                 >
                   GitHub ↗
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/ciera-muniz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block py-1.5 text-ink-400 hover:text-copper-700 transition-colors"
+                >
+                  LinkedIn ↗
                 </a>
               </li>
               <li className="text-ink-400 pt-1">Based in Denver, Colorado · building beautifully, anywhere.</li>

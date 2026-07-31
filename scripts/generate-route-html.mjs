@@ -18,9 +18,9 @@ const template = await readFile(path.join(dist, 'index.html'), 'utf8');
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 
-for (const [route, { title, description }] of Object.entries(seo)) {
+for (const [route, { title, description, image, imageAlt }] of Object.entries(seo)) {
   const url = SITE_URL + (route === '/' ? '/' : route);
-  const html = template
+  let html = template
     .replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`)
     .replace(
       /(<meta\s+name="description"\s+content=")[^"]*(")/,
@@ -50,6 +50,26 @@ for (const [route, { title, description }] of Object.entries(seo)) {
       /(<meta\s+name="twitter:description"\s+content=")[^"]*(")/,
       `$1${esc(description)}$2`
     );
+
+  // Route-specific social image (falls back to the site-wide og-image).
+  if (image) {
+    const imageUrl = SITE_URL + image;
+    html = html
+      .replace(
+        /(<meta\s+property="og:image"\s+content=")[^"]*(")/,
+        `$1${imageUrl}$2`
+      )
+      .replace(
+        /(<meta\s+name="twitter:image"\s+content=")[^"]*(")/,
+        `$1${imageUrl}$2`
+      );
+    if (imageAlt) {
+      html = html.replace(
+        /(<meta\s+property="og:image:alt"\s+content=")[^"]*(")/s,
+        `$1${esc(imageAlt)}$2`
+      );
+    }
+  }
 
   const outDir = route === '/' ? dist : path.join(dist, route.slice(1));
   await mkdir(outDir, { recursive: true });

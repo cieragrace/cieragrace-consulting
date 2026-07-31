@@ -1,7 +1,26 @@
 // Selected Work — the list grows as projects ship; order = display order.
 // status: 'live' (full data) | 'soon' (graceful placeholder, no fake links).
+// kind: 'app' (product/engineering builds) | 'client' (client sites) — drives
+//   the two sections on /work.
+// featured: appears in the home-page band. spotlight: gets the dark feature
+//   panel at the top of /work.
 // preview: { poster } static fallback image, { clip } short looping interaction video.
 const projects = [
+  {
+    title: 'Neon Grid Arcade',
+    category: 'Browser Game Arcade',
+    description:
+      'A synthwave hall of five playable browser games — Snake, Pong, Breakout, Simon, and an unbeatable Tic Tac Toe — every cabinet hand-written in strict TypeScript with no game engine or canvas library. Each game ships from its own branch through an append-only registry, so the arcade grows without merge conflicts.',
+    stack: ['Next.js', 'TypeScript', 'Tailwind', 'Canvas 2D'],
+    liveUrl: 'https://neon-grid-arcade.vercel.app',
+    repoUrl: 'https://github.com/cieragrace/neon-grid-arcade',
+    poster: '/work/neon-grid-arcade.jpg',
+    clip: null,
+    status: 'live',
+    kind: 'app',
+    featured: true,
+    spotlight: true,
+  },
   {
     title: 'AP Tracker',
     category: 'Full-Stack Web App',
@@ -13,6 +32,8 @@ const projects = [
     poster: '/work/ap-tracker.jpg',
     clip: '/work/ap-tracker.mp4',
     status: 'live',
+    kind: 'app',
+    featured: true,
   },
   {
     title: 'Inked Colorado',
@@ -25,6 +46,7 @@ const projects = [
     poster: '/work/inked-colorado.jpg',
     clip: '/work/inked-colorado.mp4',
     status: 'live',
+    kind: 'app',
   },
   {
     title: 'Garden Grow',
@@ -37,6 +59,7 @@ const projects = [
     poster: '/work/garden-grow.jpg',
     clip: '/work/garden-grow.mp4',
     status: 'live',
+    kind: 'app',
   },
   {
     title: 'Ironside Barber Co.',
@@ -49,6 +72,8 @@ const projects = [
     poster: '/work/ironside-barber.jpg',
     clip: '/work/ironside-barber.mp4',
     status: 'live',
+    kind: 'client',
+    featured: true,
   },
   {
     title: "Mimi's Chocolate Bites",
@@ -61,6 +86,7 @@ const projects = [
     poster: '/work/mimis-chocolate-bites.jpg',
     clip: null,
     status: 'live',
+    kind: 'client',
   },
   {
     title: 'Coming Soon',
@@ -73,6 +99,7 @@ const projects = [
     poster: null,
     clip: null,
     status: 'soon',
+    kind: 'app',
   },
 ];
 
